@@ -1,0 +1,72 @@
+<div class="demo3">
+  <button
+   id="button-back"
+   type="button"
+   class="p-2"
+   aria-label={gettext("previous")}
+   phx-click="back"
+   phx-target={@myself}>
+    <.icon name="hero-arrow-left-solid" class="h-6 w-6" />
+  </button>
+  <h1><b><%= @person.name %></b></h1>
+  <div class="dashboard">
+    <%= if !(@abstract.loading || @abstract.result == nil) do %>
+      <div class="widget">
+        <p>
+          <%= RDF.Literal.value(@abstract.result) %>
+        </p>
+      </div>
+    <% end %>
+    <div class="widget content-center">
+      <%= if @images.loading do %>
+        <p>Loading...</p>
+      <% else %>
+        <.image_gallery id="image-gallery" images={@images.result} />
+      <% end %>
+    </div>
+
+    <div class="widget">
+      <h2>¿Por qué está de actualidad?</h2>
+      <div id="context"><%= elem(@person.popular, 1) %></div>
+    </div>
+
+    <div class="widget">
+      <h2>¿Qué dicen en Twitter?</h2>
+      <%= if @social.loading do %>
+        <p>Loading...</p>
+      <% else %>
+        <table>
+          <thead>
+            <tr>
+              <th>Emotion</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for {key, value} <- @social.result do %>
+              <tr>
+                <td><%= key %></td>
+                <td><%= Float.round(value * 100, 2) %>%</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+
+    <div class="widget">
+      <h2>Histórico de popularidad</h2>
+      <%= if @history.loading do %>
+        <p>Loading...</p>
+      <% else %>
+      <canvas
+        id="my-chart"
+        phx-hook="ChartJS"
+        data-labels={Jason.encode!(Map.keys(@history.result) |> Enum.sort(Date))}
+        data-points={Jason.encode!(Map.values(@history.result))}
+      >
+      </canvas>
+      <% end %>
+    </div>
+  </div>
+</div>

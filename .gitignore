@@ -1,0 +1,46 @@
+# General
+.DS_Store
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+ENV/
+venv.bak/
+*.env
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+*.log
+
+# Elixir
+_build/
+deps/
+erl_crash.dump
+*.ez
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+**/Dockerfile*
+docker-compose.yml
+.dockerignore
