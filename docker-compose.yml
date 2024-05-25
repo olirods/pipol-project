@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  popularity-tracker:
+    build:
+      context: ./popularity-tracker
+    container_name: popularity-tracker
+    networks:
+      - pipol_network
+
+  social-analyzer:
+    build:
+      context: ./social-analyzer
+    container_name: social-analyzer
+    networks:
+      - pipol_network
+
+  pipol:
+    build:
+      context: ./pipol
+    container_name: pipol
+    volumes:
+      - ./pipol:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - popularity-tracker
+      - social-analyzer
+    networks:
+      - pipol_network
+
+networks:
+  pipol_network:
+    driver: bridge
+    name: pipol_network
+    

@@ -39,8 +39,3 @@ yarn-error.log
 .idea/
 *.sublime-project
 *.sublime-workspace
-
-# Docker
-**/Dockerfile*
-docker-compose.yml
-.dockerignore
