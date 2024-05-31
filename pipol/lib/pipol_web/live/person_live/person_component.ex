@@ -22,4 +22,12 @@ defmodule PipolWeb.PersonLive.PersonComponent do
      socket
      |> push_patch(to: "/")}
   end
+
+  defp emotion_emoji("anger"), do: "😠"
+  defp emotion_emoji("disgust"), do: "🤢"
+  defp emotion_emoji("fear"), do: "😠"
+  defp emotion_emoji("joy"), do: "😊"
+  defp emotion_emoji("sadness"), do: "😢"
+  defp emotion_emoji("surprise"), do: "😮"
+  defp emotion_emoji(_), do: "😐"
 end

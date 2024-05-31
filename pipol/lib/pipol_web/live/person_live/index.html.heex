@@ -5,20 +5,22 @@
     person={@person}
   />
 <% else %>
-  <.header class="">
-    Quién está de moda en España en este momento
-  </.header>
+  <div class="max-w-md mx-auto ml-5">
+  <h1 class="text-xl font-bold mb-10 mt-5 mr-20 text-left leading-tight">Quién está de moda <br>en España <br>en este momento</h1>
 
   <%= if @people.loading do %>
     <p>Loading...</p>
   <% else %>
-    <.table
-      id="people"
-      rows={Enum.with_index(@people.result)}
-      row_click={fn {person, _i} -> JS.push("click-person", value: %{id: person.id}) end}
-    >
-      <:col :let={{_person, i}} label="#"><%= i + 1 %></:col>
-      <:col :let={{person, _i}} label="name"><%= person.name %></:col>
-    </.table>
+    <ul id="people" class="text-left">
+      <%= for {person, i} <- Enum.with_index(@people.result) do %>
+        <li phx-click={JS.push("click-person", value: %{id: person.id})} class="cursor-pointer mb-2">
+          <div class="flex items-center mb-5">
+            <span class={"font-bold mr-2 #{if i < 3, do: "text-4xl text-blue-600", else: "text-3xl text-gray-400"}"}>#<%= i + 1 %></span>
+            <span class={"font-bold #{if i < 3, do: "text-3xl text-blue-600", else: "text-2xl text-gray-400"}"}><%= person.name %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
+</div>
 <% end %>

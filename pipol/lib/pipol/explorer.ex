@@ -10,7 +10,7 @@ defmodule Pipol.Explorer do
       "https://www.googleapis.com/customsearch/v1",
       [],
       params: %{
-        key: "AIzaSyC69eW-FuQcLfF8BOxN2yfTeFL4X-FcS70",
+        key: Application.fetch_env!(:explorer, :google_api_key),
         cx: "a6bdcf3680e30404c",
         q: person.name,
         searchType: "image",

@@ -2,6 +2,8 @@ services:
   popularity-tracker:
     build:
       context: ./popularity-tracker
+    volumes:
+      - ./popularity-tracker:/app
     container_name: popularity-tracker
     networks:
       - pipol_network
@@ -9,6 +11,8 @@ services:
   social-analyzer:
     build:
       context: ./social-analyzer
+    volumes:
+      - ./social-analyzer:/app
     container_name: social-analyzer
     networks:
       - pipol_network
@@ -21,6 +25,8 @@ services:
       - ./pipol:/app
     ports:
       - 4000:4000
+    env_file:
+      - ./pipol/.env
     depends_on:
       - popularity-tracker
       - social-analyzer

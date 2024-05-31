@@ -103,15 +103,15 @@ div.demo3 {
   }
 
   .widget {
-    height: 350px;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajusta la sombra según sea necesario */
     position: relative;
+    color: #666;
   }
 
-  .widget h2 {
+  .widget h3 {
     font-weight: bold;
     margin-top: 0;
     color: #333;
@@ -119,15 +119,6 @@ div.demo3 {
 
   .widget p {
     margin-top: 10px;
-    color: #666;
-  }
-
-  div#context {
-    font-size: 18px;
-
-    p {
-      color: black;
-    }
   }
 
   .carousel {
@@ -166,5 +157,27 @@ div.demo3 {
   
   .next {
     right: 10px;
+  }
+
+  .emotion-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .emotion-emoji {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  .percentage-bar {
+    height: 20px;
+    background-color: #269dff;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+  }
+  .bar-container {
+    width: 50%;
+    background-color: #f1f1f1;
+    margin-left: 10px;
   }
 }

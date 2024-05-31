@@ -12,6 +12,8 @@ RUN mix do deps.get, deps.compile
 
 COPY . .
 
+RUN source .env
+
 # RUN npm install --prefix ./assets
 # RUN npm run deploy --prefix ./assets
 # RUN mix phx.digest
