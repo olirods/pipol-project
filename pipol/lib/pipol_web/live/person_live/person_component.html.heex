@@ -26,21 +26,6 @@
       <div id="context"><%= elem(@person.popular, 1) %></div>
     </div>
 
-        <div class="widget">
-      <h3>¿Cómo ha variado su popularidad?</h3>
-      <%= if @history.loading do %>
-        <p>Loading...</p>
-      <% else %>
-      <canvas
-        id="my-chart"
-        phx-hook="ChartJS"
-        data-labels={Jason.encode!(Map.keys(@history.result) |> Enum.sort(Date))}
-        data-points={Jason.encode!(Map.values(@history.result))}
-      >
-      </canvas>
-      <% end %>
-    </div>
-
     <div class="widget">
       <h3>¿Qué dicen en Twitter?</h3>
       <%= if @social.loading do %>
@@ -58,6 +43,21 @@
             </div>
           <% end %>
         </div>
+      <% end %>
+    </div>
+
+    <div class="widget">
+      <h3>¿Cómo ha variado su popularidad?</h3>
+      <%= if @history.loading || @social.loading || @images.loading || @abstract.loading do %>
+        <p>Loading...</p>
+      <% else %>
+      <canvas
+        id="my-chart"
+        phx-hook="ChartJS"
+        data-labels={Jason.encode!(Map.keys(@history.result) |> Enum.sort(Date))}
+        data-points={Jason.encode!(Map.values(@history.result))}
+      >
+      </canvas>
       <% end %>
     </div>
   </div>

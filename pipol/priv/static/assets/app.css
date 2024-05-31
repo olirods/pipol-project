@@ -1910,6 +1910,9 @@ div.demo3 {
     background-color: #f1f1f1;
     margin-left: 10px;
   }
+  canvas {
+    height: 200px !important;
+  }
 }
 
 .hover\:cursor-pointer:hover {

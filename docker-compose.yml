@@ -9,6 +9,8 @@ services:
       - pipol_network
 
   social-analyzer:
+    tty: true
+    stdin_open: true
     build:
       context: ./social-analyzer
     volumes:
