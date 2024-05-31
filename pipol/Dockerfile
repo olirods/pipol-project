@@ -18,6 +18,6 @@ RUN source .env
 # RUN npm run deploy --prefix ./assets
 # RUN mix phx.digest
 
-EXPOSE 4000
+EXPOSE 80
 
 CMD ["mix", "phx.server"]

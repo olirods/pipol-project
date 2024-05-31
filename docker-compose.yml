@@ -24,7 +24,7 @@ services:
     volumes:
       - ./pipol:/app
     ports:
-      - 4000:4000
+      - 80:80
     env_file:
       - ./pipol/.env
     depends_on:
