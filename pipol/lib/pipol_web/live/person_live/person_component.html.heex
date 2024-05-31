@@ -15,17 +15,30 @@
         <%= RDF.Literal.value(@abstract.result) %>
       </div>
     <% end %>
-    <div class="widget content-center">
-      <%= if @images.loading do %>
-        <p>Loading...</p>
-      <% else %>
+    <%= if !(@images.loading || length(@images.result) == 0) do %>
+      <div class="widget content-center">
         <.image_gallery id="image-gallery" images={@images.result} />
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <div class="widget">
       <h3>¿Por qué está de actualidad?</h3>
       <div id="context"><%= elem(@person.popular, 1) %></div>
+    </div>
+
+        <div class="widget">
+      <h3>¿Cómo ha variado su popularidad?</h3>
+      <%= if @history.loading do %>
+        <p>Loading...</p>
+      <% else %>
+      <canvas
+        id="my-chart"
+        phx-hook="ChartJS"
+        data-labels={Jason.encode!(Map.keys(@history.result) |> Enum.sort(Date))}
+        data-points={Jason.encode!(Map.values(@history.result))}
+      >
+      </canvas>
+      <% end %>
     </div>
 
     <div class="widget">
@@ -45,20 +58,6 @@
             </div>
           <% end %>
         </div>
-      <% end %>
-    </div>
-
-    <div class="widget">
-      <h3>¿Cómo ha variado su popularidad?</h3>
-      <%= if @history.loading do %>
-        <p>Loading...</p>
-      <% else %>
-      <div
-        id="my-chart"
-        phx-hook="ChartJS"
-        data-person={@person.name}
-      >
-      </div>
       <% end %>
     </div>
   </div>

@@ -25,16 +25,25 @@ import Chart from 'chart.js/auto';
 
 let hooks = {}
 hooks.ChartJS =  {
-  person() { return this.el.dataset.person },
+  labels() { return JSON.parse(this.el.dataset.labels); },
+  dataset() { return JSON.parse(this.el.dataset.points); },
   mounted() {
-    trends.embed.renderExploreWidgetTo(document.getElementById("my-chart"), "TIMESERIES", {
-      "comparisonItem": [{"keyword": this.person(), "geo": "ES", "time": "2004-01-01 2024-02-04"}],
-      "category": 0,
-      "property": ""
-    }, {
-      "exploreQuery": `date=all&geo=ES&q=${this.person()}&hl=es`,
-      "guestPath": "https://trends.google.com:443/trends/embed/"
-    });
+    const ctx = this.el;
+  const data = {
+      type: 'line',
+      data: {
+        // random data to validate chart generation
+        labels: this.labels(),
+        datasets: [{data: this.dataset()}]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {display: false}
+        }
+      },
+  };
+    const chart = new Chart(ctx, data);
   }
 } 
 

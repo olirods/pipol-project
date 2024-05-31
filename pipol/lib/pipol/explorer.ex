@@ -6,7 +6,7 @@ defmodule Pipol.Explorer do
   end
 
   def images(person) do
-    HTTPoison.get!(
+    items = HTTPoison.get!(
       "https://www.googleapis.com/customsearch/v1",
       [],
       params: %{
@@ -24,7 +24,12 @@ defmodule Pipol.Explorer do
     |> Map.get(:body, [])
     |> Jason.decode!()
     |> Map.get("items")
-    |> Enum.map(&(&1["link"]))
+
+    if is_list(items) && length(items) > 0 do
+      Enum.map(items, &(&1["link"]))
+    else
+      []
+    end
   end
 
   defp get_resource_name(person) do
