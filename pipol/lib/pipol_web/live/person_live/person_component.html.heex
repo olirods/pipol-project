@@ -12,7 +12,15 @@
   <div class="dashboard">
     <%= if !(@abstract.loading || @abstract.result == nil) do %>
       <div class="widget h-auto">
-        <%= @abstract.result %>
+      <svg class="absolute top-0 right-0 h-10 w-10 m-1"width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.99 17V5.825H27.315V17H24.99ZM28.4716 17L32.2516 5.825H35.3416L39.1216 17H36.5866L35.8366 14.72H31.7416L30.9916 17H28.4716ZM32.3866 12.695H35.1916L33.4816 7.415H34.1116L32.3866 12.695Z" fill="#007AFF"/>
+<path d="M3.49994 20.5C4.32994 21.33 5.66994 21.33 6.49994 20.5L19.4999 7.5C20.3299 6.67 20.3299 5.33 19.4999 4.5C18.6699 3.67 17.3299 3.67 16.4999 4.5L3.49994 17.5C2.66994 18.33 2.66994 19.67 3.49994 20.5Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.01 8.99L15.01 5.99" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.5 2.44L10 2L9.56 3.5L10 5L8.5 4.56L7 5L7.44 3.5L7 2L8.5 2.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.5 8.44L6 8L5.56 9.5L6 11L4.5 10.56L3 11L3.44 9.5L3 8L4.5 8.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.5 13.44L21 13L20.56 14.5L21 16L19.5 15.56L18 16L18.44 14.5L18 13L19.5 13.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        <div class="mt-4"><%= @abstract.result %></div>
       </div>
     <% end %>
     <%= if !(@images.loading || length(@images.result) == 0) do %>
@@ -23,6 +31,14 @@
 
     <%= if elem(@person.popular, 0) do %>
     <div class="widget">
+    <svg class="absolute top-0 right-0 h-10 w-10 m-1"width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.99 17V5.825H27.315V17H24.99ZM28.4716 17L32.2516 5.825H35.3416L39.1216 17H36.5866L35.8366 14.72H31.7416L30.9916 17H28.4716ZM32.3866 12.695H35.1916L33.4816 7.415H34.1116L32.3866 12.695Z" fill="#007AFF"/>
+<path d="M3.49994 20.5C4.32994 21.33 5.66994 21.33 6.49994 20.5L19.4999 7.5C20.3299 6.67 20.3299 5.33 19.4999 4.5C18.6699 3.67 17.3299 3.67 16.4999 4.5L3.49994 17.5C2.66994 18.33 2.66994 19.67 3.49994 20.5Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.01 8.99L15.01 5.99" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.5 2.44L10 2L9.56 3.5L10 5L8.5 4.56L7 5L7.44 3.5L7 2L8.5 2.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.5 8.44L6 8L5.56 9.5L6 11L4.5 10.56L3 11L3.44 9.5L3 8L4.5 8.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.5 13.44L21 13L20.56 14.5L21 16L19.5 15.56L18 16L18.44 14.5L18 13L19.5 13.44Z" stroke="#007AFF" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
       <h3>¿Por qué está de actualidad?</h3>
       <div id="context"><%= elem(@person.popular, 1) %></div>
     </div>
