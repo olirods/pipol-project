@@ -5,42 +5,32 @@
     person={@person}
   />
 <% else %>
-  <div class="max-w-md mx-auto ml-5">
-    <div class="flex mb-10">
-      <%= if @show_input do %>
-        <form phx-submit="submit-form">
-          <button
-            id="button-back"
-            type="button"
-            class="p-2"
-            aria-label={gettext("previous")}
-            phx-click="toggle-input"
-          >
-            <.icon name="hero-arrow-left-solid" class="h-6 w-6" />
-          </button>
-          <input
+            <.modal id="search-modal">
+        <form phx-submit="submit-form" class="flex absolute top-4">
+        <input
             autoFocus
             type="text"
             name="name"
             placeholder="¿En quién piensas?"
-            class="mt-10 mr-10 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            class="p-2 mr-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 max-w-xs"
           />
-          <button class="p-2" type="submit">
+          <button class="p-2 mb-1" type="submit">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 22L20 20" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </form>
-      <% else %>
-        <h1 class="text-xl font-bold mt-5 mr-20 text-left leading-tight">Quién está de moda <br>en España <br>en este momento</h1>
-        <button class="p-2 ml-2" phx-click="toggle-input">
+      </.modal>
+  <div class="max-w-md mx-auto ml-5">
+    <div class="flex mb-10">
+              <h1 class="text-xl font-bold mt-5 mr-20 text-left leading-tight">Quién está de moda <br>en España <br>en este momento</h1>
+        <button class="p-2 ml-2" phx-click={show_modal("search-modal")} hidden={}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M22 22L20 20" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-      <% end %>
     </div>
 
     <%= if @people.loading do %>
@@ -59,4 +49,4 @@
     <% end %>
 
   </div>
-  <% end %>
+<% end %>
