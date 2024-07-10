@@ -56,7 +56,8 @@ defmodule Pipol.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       {:httpoison, "~> 2.2"},
-      {:sparql_client, "~> 0.4"}
+      {:sparql_client, "~> 0.4"},
+      {:openai, "~> 0.6.1"}
     ]
   end
 

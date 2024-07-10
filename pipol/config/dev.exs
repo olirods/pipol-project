@@ -74,4 +74,8 @@ config :phoenix_live_view,
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
 
+config :openai,
+  api_key: System.get_env("OPENAI_API_KEY"),
+  organization_key: System.get_env("OPENAI_ORG")
+
 config :explorer, :google_api_key, System.get_env("GOOGLE_API_KEY")

@@ -55,7 +55,5 @@ def calculate_proportions(arr):
 def emotion_analysis(tweet):
     payload = {"inputs": tweet}
     response = requests.post(HG_API_URL, headers=hg_headers, json=payload)
-
-    print(response)
 	
     return response.json()

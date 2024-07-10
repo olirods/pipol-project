@@ -3,6 +3,7 @@ defmodule Pipol.Explorer do
     person
     |> get_resource_name()
     |> get_abstract()
+    |> intelligent_abstract()
   end
 
   def images(person) do
@@ -63,6 +64,22 @@ defmodule Pipol.Explorer do
     """
     |> SPARQL.Client.select("http://es.dbpedia.org/sparql", result_format: :json, request_method: :get, protocol_version: "1.1")
 
-    List.first(result.results)["abstract"]
+    List.first(result.results)["abstract"] |> RDF.Literal.value()
+  end
+
+  defp intelligent_abstract(abstract) do
+    {:ok, %{
+      choices: [
+        %{"message" => %{
+             "content" => result
+        }}]}} = OpenAI.chat_completion(
+      model: "gpt-3.5-turbo",
+      messages: [
+            %{role: "system", content: "El usuario te va a pasar un resumen introductorio de un personaje famoso. Por favor, resumelo hasta 100 palabras."},
+            %{role: "user", content: abstract},
+        ]
+    )
+
+    result
   end
 end
