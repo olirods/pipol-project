@@ -66,14 +66,14 @@
 
     <div class="widget">
       <h3>¿Cómo ha variado su popularidad?</h3>
-      <%= if @history.loading || @social.loading || @images.loading || @abstract.loading do %>
+      <%= if @history.loading || @social.loading || @images.loading || @abstract.loading || @history.result == nil do %>
         <.loading />
       <% else %>
       <canvas
         id="my-chart"
         phx-hook="ChartJS"
-        data-labels={Jason.encode!(Map.keys(@history.result) |> Enum.sort(Date))}
-        data-points={Jason.encode!(Map.values(@history.result))}
+        data-labels={Jason.encode!(Enum.map(@history.result, &(elem(&1, 0))))}
+        data-points={Jason.encode!(Enum.map(@history.result, &(elem(&1, 1))))}
       >
       </canvas>
       <% end %>

@@ -10,112 +10,25 @@ defmodule Pipol.Popularity do
     end)
   end
 
-  def history(_person) do
-    %{
-      1_588_464_000_000 => :rand.uniform(100),
-      1_589_068_800_000 => :rand.uniform(100),
-      1_589_673_600_000 => :rand.uniform(100),
-      1_590_278_400_000 => :rand.uniform(100),
-      1_590_883_200_000 => :rand.uniform(100),
-      1_591_488_000_000 => :rand.uniform(100),
-      1_592_092_800_000 => :rand.uniform(100),
-      1_592_697_600_000 => :rand.uniform(100),
-      1_593_302_400_000 => :rand.uniform(100),
-      1_593_907_200_000 => :rand.uniform(100),
-      1_594_512_000_000 => :rand.uniform(100),
-      1_595_116_800_000 => :rand.uniform(100),
-      1_595_721_600_000 => :rand.uniform(100),
-      1_596_326_400_000 => :rand.uniform(100),
-      1_596_931_200_000 => :rand.uniform(100),
-      1_597_536_000_000 => :rand.uniform(100),
-      1_598_140_800_000 => :rand.uniform(100),
-      1_598_745_600_000 => :rand.uniform(100),
-      1_599_350_400_000 => :rand.uniform(100),
-      1_599_955_200_000 => :rand.uniform(100),
-      1_600_560_000_000 => :rand.uniform(100),
-      1_601_164_800_000 => :rand.uniform(100),
-      1_601_769_600_000 => :rand.uniform(100),
-      1_602_374_400_000 => :rand.uniform(100),
-      1_602_979_200_000 => :rand.uniform(100),
-      1_603_584_000_000 => :rand.uniform(100),
-      1_604_188_800_000 => :rand.uniform(100),
-      1_604_793_600_000 => :rand.uniform(100),
-      1_605_398_400_000 => :rand.uniform(100),
-      1_606_003_200_000 => :rand.uniform(100),
-      1_606_608_000_000 => :rand.uniform(100),
-      1_607_212_800_000 => :rand.uniform(100),
-      1_607_817_600_000 => :rand.uniform(100),
-      1_608_422_400_000 => :rand.uniform(100),
-      1_609_027_200_000 => :rand.uniform(100),
-      1_609_632_000_000 => :rand.uniform(100),
-      1_610_236_800_000 => :rand.uniform(100),
-      1_610_841_600_000 => :rand.uniform(100),
-      1_611_446_400_000 => :rand.uniform(100),
-      1_612_051_200_000 => :rand.uniform(100),
-      1_612_656_000_000 => :rand.uniform(100),
-      1_613_260_800_000 => :rand.uniform(100),
-      1_613_865_600_000 => :rand.uniform(100),
-      1_614_470_400_000 => :rand.uniform(100),
-      1_615_075_200_000 => :rand.uniform(100),
-      1_615_680_000_000 => :rand.uniform(100),
-      1_616_284_800_000 => :rand.uniform(100),
-      1_616_889_600_000 => :rand.uniform(100),
-      1_617_494_400_000 => :rand.uniform(100),
-      1_618_099_200_000 => :rand.uniform(100),
-      1_618_704_000_000 => :rand.uniform(100),
-      1_619_308_800_000 => :rand.uniform(100),
-      1_619_913_600_000 => :rand.uniform(100),
-      1_620_518_400_000 => :rand.uniform(100),
-      1_621_123_200_000 => :rand.uniform(100),
-      1_621_728_000_000 => :rand.uniform(100),
-      1_622_332_800_000 => :rand.uniform(100),
-      1_622_937_600_000 => :rand.uniform(100),
-      1_623_542_400_000 => :rand.uniform(100),
-      1_624_147_200_000 => :rand.uniform(100),
-      1_624_752_000_000 => :rand.uniform(100),
-      1_625_356_800_000 => :rand.uniform(100),
-      1_625_961_600_000 => :rand.uniform(100),
-      1_626_566_400_000 => :rand.uniform(100),
-      1_627_171_200_000 => :rand.uniform(100),
-      1_627_776_000_000 => :rand.uniform(100),
-      1_628_380_800_000 => :rand.uniform(100),
-      1_628_985_600_000 => :rand.uniform(100),
-      1_629_590_400_000 => :rand.uniform(100),
-      1_630_195_200_000 => :rand.uniform(100),
-      1_630_800_000_000 => :rand.uniform(100),
-      1_631_404_800_000 => :rand.uniform(100),
-      1_632_009_600_000 => :rand.uniform(100),
-      1_632_614_400_000 => :rand.uniform(100),
-      1_633_219_200_000 => :rand.uniform(100),
-      1_633_824_000_000 => :rand.uniform(100),
-      1_634_428_800_000 => :rand.uniform(100),
-      1_635_033_600_000 => :rand.uniform(100),
-      1_635_638_400_000 => :rand.uniform(100),
-      1_636_243_200_000 => :rand.uniform(100),
-      1_636_848_000_000 => :rand.uniform(100),
-      1_637_452_800_000 => :rand.uniform(100),
-      1_638_057_600_000 => :rand.uniform(100),
-      1_638_662_400_000 => :rand.uniform(100),
-      1_639_267_200_000 => :rand.uniform(100),
-      1_639_872_000_000 => :rand.uniform(100),
-      1_640_476_800_000 => :rand.uniform(100),
-      1_641_081_600_000 => :rand.uniform(100),
-      1_641_686_400_000 => :rand.uniform(100),
-      1_642_291_200_000 => :rand.uniform(100),
-      1_642_896_000_000 => :rand.uniform(100),
-      1_643_500_800_000 => :rand.uniform(100),
-      1_644_105_600_000 => :rand.uniform(100),
-      1_644_710_400_000 => :rand.uniform(100),
-      1_645_315_200_000 => :rand.uniform(100),
-      1_645_920_000_000 => :rand.uniform(100),
-      1_646_524_800_000 => :rand.uniform(100),
-    }
+  def history(person) do
+    result = HTTPoison.get!("http://popularity-tracker:5000/people/#{String.replace(person.name, " ", "%20")}/history", [], recv_timeout: 50_000)
+
+    case result do
+      %HTTPoison.Response{status_code: 200} -> parse_history(result)
+      _ -> nil
+    end
+  end
+
+  defp parse_history(result) do
+    result
+    |> Map.get(:body, [])
+    |> Jason.decode!()
     |> Enum.map(fn {k, v} ->
       {
-        DateTime.from_unix!(k, :millisecond) |> DateTime.to_date,
+        DateTime.from_unix!(String.to_integer(k), :millisecond) |> DateTime.to_date,
         v
       }
     end)
-    |> Enum.into(%{})
+    |> Enum.sort(fn {date1, _}, {date2, _} -> Date.compare(date1, date2) != :gt end)
   end
 end

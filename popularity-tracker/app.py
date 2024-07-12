@@ -12,6 +12,7 @@ load_dotenv()
 
 app = Flask(__name__)
 ai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+pytrends = TrendReq(hl="es")
 
 @app.route("/people/ranking")
 def get_people_ranking():
@@ -74,7 +75,6 @@ def filter_and_summarize(topics_info):
     
 @app.route("/people/<person>/history")
 def get_person_history(person):
-    pytrends = TrendReq(hl="es")
     pytrends.build_payload([person], cat=0, timeframe="today 5-y", geo="ES")
 
     return pytrends.interest_over_time()[person].to_json()
