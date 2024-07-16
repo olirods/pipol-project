@@ -633,7 +633,7 @@ def get_person_history(person):
         "date": "today 5-y",
         "tz": "420",
         "data_type": "TIMESERIES",
-        "api_key": "c1b7071b08ebad3b35aa482244960d003e0e0d3f9b9c9fb86a69a53d63d54c2c"
+        "api_key": os.environ.get("SERPAPI_API_KEY")
         }
 
     search = GoogleSearch(params)
